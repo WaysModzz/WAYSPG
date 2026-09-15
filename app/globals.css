@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 20% -10%, rgba(168,85,247,0.25), transparent),
+      radial-gradient(ellipse 80% 50% at 80% 110%, rgba(6,182,212,0.22), transparent);
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+  }
+
+  .glass-panel {
+    @apply glass shadow-[0_0_40px_-10px_rgba(168,85,247,0.35)] p-6;
+  }
+
+  .btn-neon {
+    @apply relative px-5 py-3 rounded-xl font-semibold text-slate-950
+      bg-gradient-to-r from-neon-purple to-neon-cyan
+      hover:shadow-glow-purple transition-shadow duration-300
+      disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .input-neon {
+    @apply w-full bg-slate-900/60 border border-white/10 rounded-xl px-4 py-3
+      text-slate-100 placeholder-slate-500 outline-none
+      focus:border-neon-purple focus:shadow-glow-purple transition-all duration-200;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase;
+  }
+  .badge-pending {
+    @apply badge bg-amber-500/15 text-amber-300 border border-amber-400/30;
+  }
+  .badge-pending .dot {
+    @apply w-2 h-2 rounded-full bg-amber-400 animate-pulse-slow;
+  }
+  .badge-success {
+    @apply badge bg-emerald-500/15 text-emerald-300 border border-emerald-400/30;
+  }
+  .badge-rejected {
+    @apply badge bg-rose-500/15 text-rose-300 border border-rose-400/30;
+  }
+}
